@@ -18,7 +18,7 @@ export default function SignUp() {
 		const checkAuthStatus = async () => {
 			try {
 				const res = await axios.get(
-					"http://localhost:8080/api/isAuthenticated",
+					"https://type-rush-backend.vercel.app/api/isAuthenticated",
 					{
 						withCredentials: true,
 					}
@@ -37,9 +37,13 @@ export default function SignUp() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await axios.post("http://localhost:8080/api/signup", form, {
-				withCredentials: true,
-			});
+			const res = await axios.post(
+				"https://type-rush-backend.vercel.app/api/signup",
+				form,
+				{
+					withCredentials: true,
+				}
+			);
 			if (res.status === 201) {
 				toast.success("Account created successfully! Please log in.");
 				navigate("/login");
@@ -132,7 +136,8 @@ export default function SignUp() {
 				<button
 					type="button"
 					onClick={() =>
-						(window.location.href = "http://localhost:8080/api/auth/google")
+						(window.location.href =
+							"https://type-rush-backend.vercel.app/api/auth/google")
 					}
 					className="w-full mt-4 bg-gray-800 hover:bg-gray-900 hover:cursor-pointer text-white py-2 rounded-lg font-semibold transition duration-200 flex items-center justify-center"
 				>

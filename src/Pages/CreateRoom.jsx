@@ -14,9 +14,12 @@ function CreateRoom() {
 	useEffect(() => {
 		const getUserInfo = async () => {
 			try {
-				const res = await axios.get("http://localhost:8080/api/getUserInfo", {
-					withCredentials: true,
-				});
+				const res = await axios.get(
+					"https://type-rush-backend.vercel.app/api/getUserInfo",
+					{
+						withCredentials: true,
+					}
+				);
 				const userName = res.data.user.name;
 				socket.emit("create-room", userName);
 			} catch (err) {

@@ -29,9 +29,12 @@ function TypingArena() {
 	useEffect(() => {
 		const getUserInfo = async () => {
 			try {
-				const res = await axios.get("http://localhost:8080/api/getUserInfo", {
-					withCredentials: true,
-				});
+				const res = await axios.get(
+					"https://type-rush-backend.vercel.app/api/getUserInfo",
+					{
+						withCredentials: true,
+					}
+				);
 				setName(res.data.user.name);
 				nameRef.current = res.data.user.name;
 			} catch (err) {
