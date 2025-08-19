@@ -17,7 +17,7 @@ export default function Login() {
 		const checkAuthStatus = async () => {
 			try {
 				const res = await axios.get(
-					"https://type-rush-backend.vercel.app/api/isAuthenticated",
+					"https://typerush-backend.onrender.com/api/isAuthenticated",
 					{
 						withCredentials: true,
 					}
@@ -36,7 +36,7 @@ export default function Login() {
 		e.preventDefault();
 		try {
 			const res = await axios.post(
-				"https://type-rush-backend.vercel.app/api/login",
+				"https://typerush-backend.onrender.com/api/login",
 				form,
 				{
 					withCredentials: true,
@@ -125,7 +125,7 @@ export default function Login() {
 					type="button"
 					onClick={() =>
 						(window.location.href =
-							"https://type-rush-backend.vercel.app/api/auth/google")
+							"https://typerush-backend.onrender.com/api/auth/google")
 					}
 					className="w-full mt-4 bg-gray-800 hover:bg-gray-900 hover:cursor-pointer text-white py-2 rounded-lg font-semibold transition duration-200 flex items-center justify-center"
 				>

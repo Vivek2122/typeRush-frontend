@@ -15,7 +15,7 @@ function CreateRoom() {
 		const getUserInfo = async () => {
 			try {
 				const res = await axios.get(
-					"https://type-rush-backend.vercel.app/api/getUserInfo",
+					"https://typerush-backend.onrender.com/api/getUserInfo",
 					{
 						withCredentials: true,
 					}
