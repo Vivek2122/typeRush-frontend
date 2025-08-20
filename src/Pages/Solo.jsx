@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Solo() {
 	const [name, setName] = useState("");
@@ -14,6 +15,12 @@ function Solo() {
 	const timerRef = useRef(null);
 	const startTimeRef = useRef(null);
 	const wrongCountRef = useRef(0);
+	const navigate = useNavigate();
+
+	// Go back button logic
+	const handleGoBack = () => {
+		navigate("/play");
+	};
 
 	// Fetch user info & paragraph
 	useEffect(() => {
@@ -185,6 +192,22 @@ function Solo() {
 						Accuracy:{" "}
 						<span className="font-semibold">{calculateAccuracy()}%</span>
 					</p>
+					<div className="mt-8 flex justify-center">
+						<button
+							onClick={handleGoBack}
+							className="
+							px-6 py-3 
+                    	  bg-indigo-500 hover:bg-indigo-600 
+                    	  text-white text-base sm:text-lg 
+                    		rounded-xl font-semibold 
+                    		shadow-lg hover:shadow-xl 
+                    		transition-transform transform hover:-translate-y-0.5 
+                    		w-40 sm:w-48
+							"
+						>
+							Go Back
+						</button>
+					</div>
 				</div>
 			)}
 		</div>
