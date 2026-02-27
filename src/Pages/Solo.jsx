@@ -40,10 +40,15 @@ function Solo() {
 
 		const getTargetText = async () => {
 			const res = await axios.get(
-				"https://random-word-api.vercel.app/api?words=50&length=5"
+				"https://typerush-backend.onrender.com/api/getWords",
+				{
+					withCredentials: true,
+				}
 			);
-			let text = res.data.join(" ");
-			setTargetText(text.split(""));
+			const wordsArray = res.data.words.join(" "); // "apple house train ..."
+			setTargetText(wordsArray.split(""));  
+			// let text = res.data.join(" ");
+			// setTargetText(text.split(""));
 		};
 
 		getUserInfo();
